@@ -1,0 +1,151 @@
+.fancy-font {
+    font-family: 'Dancing Script', cursive;
+    /* Example fancy font */
+    font-size: 1.2rem;
+    /* Adjust font size as needed */
+}
+
+.alert {
+    font-family: inherit;
+    /* Inherit font family from parent */
+}
+
+.carousel-inner {
+    /* Set the height for the carousel container if needed */
+    height: 600px;
+    /* Adjust as needed */
+}
+
+.carousel-item {
+    /* Ensure the item takes up the full space of the container */
+    height: 150%;
+font-size: 20px;
+}
+
+.carousel-image {
+    /* Ensure the image fits within its container */
+    width: 250%;
+    height: 100%;
+    object-fit: cover;
+    /* Adjusts the image to cover the container while preserving aspect ratio */
+}
+
+.footer-container{
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.container{
+    max-width: 100%;
+}
+
+.contribute-page {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contribute-page h2 {
+    text-align: center;
+}
+
+.contribution-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.contribution-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+}
+
+.contribution-button.selected {
+    background-color: #28a745;
+    color: white;
+    border-color: #28a745;
+}
+
+.contribute-page form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contribute-page form div {
+    margin-bottom: 10px;
+}
+
+.contribute-page form label {
+    margin-bottom: 5px;
+}
+
+.preset-amounts {
+    display: flex;
+    justify-content: space-around;
+}
+
+.preset-amounts label {
+    margin-right: 10px;
+}
+
+.contribute-page form input[type="number"],
+.contribute-page form input[type="radio"] {
+    margin-right: 5px;
+}
+
+.contribute-page form button {
+    padding: 10px;
+    font-size: 18px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contribute-page form button:hover {
+    background-color: #218838;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+}
+
+.success {
+    color: green;
+    margin-top: 10px;
+}
+
+.btnsuccess{
+        color: green;
+}
+.bbtnsuccess{
+    background-color: green;
+    padding: 6px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.bbbtnsuccess {
+    background-color: green;
+    padding: 9px 30px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.bbtnsuccess, .bbbtnsuccess:hover{
+    background-color: rgb(41, 70, 41);
+}
