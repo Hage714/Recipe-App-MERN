@@ -1,4 +1,4 @@
-const Contribution = require('../models/contribute');
+const Contribution = require('../models/contribute'); 
 
 const getContributions = async (req, res) => {
     try {
@@ -10,20 +10,13 @@ const getContributions = async (req, res) => {
 };
 
 const createContribution = async (req, res) => {
-    const contribution = new Contribution({
-        title: req.body.title,
-        description: req.body.description,
-        url: req.body.url,
-        author: req.body.author,
-        date: req.body.date
-    });
-
-    try {
-        const newContribution = await contribution.save();
-        res.status(201).json(newContribution);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
+try {
+    const contribution = new Contribution(req.body);
+    await contribution.save();
+    res.status(201).json(contribution);
+} catch (error) {
+    res.status(400).json({ message: error.message });
+}
 };
 
 module.exports = { getContributions, createContribution };

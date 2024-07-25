@@ -1,4 +1,5 @@
 import React from "react";
+import ImportRecipe from "./ImportRecipe";
 
 const Welcome = () => {
   
@@ -11,7 +12,7 @@ const Welcome = () => {
         </h2>
 
         <div className=" container ">
-          <div className="row">
+          <div className="row mb-5">
             <div className="col-5 text-start">
               <p className=" fs-5">
                 A free recipe keeper and meal planner for Web, IOS, and
@@ -47,59 +48,81 @@ const Welcome = () => {
           </div>
         </div>
 
-        <div
-          id="carouselExampleAutoplaying"
-          className="carousel slide mt-5"
-          data-bs-ride="carousel"
-        >
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <img
-                src="https://foodal.com/wp-content/uploads/2022/06/Mint-Lime-Ginger-Splash-Recipe.jpg"
-                className="d-block carousel-image"
-                alt="..."
-              />
+        <div className="container mt-5">
+          <div className="row mt-5">
+            <div className="col-md-2"></div>
+
+            <div className="col-md-3 mt-5 ml-5">
+              <h3 className="fs-3">Find any recipe instantly</h3>
+              <p>Quickly lookup your recipes by name.</p>
+              <p>
+                Got some leftovers in the fridge? Search for a recipe to use
+                them up.
+              </p>
+              <p>
+                Cook more of your favorite meals and rediscover those long
+                forgotten recipes to make meal times interesting again.
+              </p>
             </div>
-            <div className="carousel-item">
-              <img
-                src="https://dcdh7ea8gkhvt.cloudfront.net/wp-content/uploads/2022/02/recipe-app-banner.jpg"
-                className="d-block carousel-image"
-                alt="..."
-              />
+            <div className="col-md-5">
+              <div
+                id="carouselExampleAutoplaying"
+                className="carousel slide mt-5"
+                data-bs-ride="carousel"
+              >
+                <div className="carousel-inner">
+                  <div className="carousel-item active">
+                    <img
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg1hhQMMP30fDSL5zWDmfj3hoXq1B6KLXhnw&s"
+                      className="d-block carousel-image"
+                      alt="..."
+                    />
+                  </div>
+                  <div className="carousel-item">
+                    <img
+                      src="https://img.taste.com.au/awCoiGh-/w720-h480-cfill-q80/taste/2016/11/easy-italian-chicken-bake-87897-1.jpeg"
+                      className="d-block carousel-image"
+                      alt="..."
+                    />
+                  </div>
+                  <div className="carousel-item">
+                    <img
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxqtkhrB3Do1KKwwFmXl2rUCCeaVUsMNgQ-g&s"
+                      className="d-block carousel-image"
+                      alt="..."
+                    />
+                  </div>
+                </div>
+                <button
+                  className="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#carouselExampleAutoplaying"
+                  data-bs-slide="prev"
+                >
+                  <span
+                    className="carousel-control-prev-icon"
+                    aria-hidden="true"
+                  ></span>
+                  <span className="visually-hidden">Previous</span>
+                </button>
+                <button
+                  className="carousel-control-next"
+                  type="button"
+                  data-bs-target="#carouselExampleAutoplaying"
+                  data-bs-slide="next"
+                >
+                  <span
+                    className="carousel-control-next-icon"
+                    aria-hidden="true"
+                  ></span>
+                  <span className="visually-hidden">Next</span>
+                </button>
+              </div>
             </div>
-            <div className="carousel-item">
-              <img
-                src="https://cdn.tatlerasia.com/tatlerasia/i/2021/08/18161038-abillion-f0e3adcwvbm-unsplash_cover_2000x1334.jpg"
-                className="d-bcarousel-image"
-                alt="..."
-              />
-            </div>
+            <div className="col-md-2"></div>
           </div>
-          <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleAutoplaying"
-            data-bs-slide="prev"
-          >
-            <span
-              className="carousel-control-prev-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleAutoplaying"
-            data-bs-slide="next"
-          >
-            <span
-              className="carousel-control-next-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Next</span>
-          </button>
         </div>
+<ImportRecipe />
       </div>
 
       <section className="container-fluid bg-dark text-white mt-5 p-4">

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const ContributionSchema = new mongoose.Schema({
-    type: {
+    contributionType: {
         type: String,
         required: true,
         enum: ['monthly', 'one-time'],
@@ -11,14 +11,15 @@ const ContributionSchema = new mongoose.Schema({
         required: true,
         min: 1, // Ensure positive amount
     },
-    customAmount: {
-        type: Number,
-        min: 0, // Allow 0 for custom amount
-    },
-    stripeChargeId: {
+    contributorName: {
         type: String,
+        required: true,
     },
-    createdAt: {
+    contributorEmail: {
+        type: String,
+        required: true,
+    },
+    date: {
         type: Date,
         default: Date.now,
     },

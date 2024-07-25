@@ -7,7 +7,6 @@ import Search from "../components/Search";
 import NewRecipe from "./NewRecipe";
 import EditRecipe from "./EditRecipe";
 import DeleteRecipe from "./DeleteRecipe";
-import { FaEye } from "react-icons/fa";
 import { BiSolidEditAlt } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
 
@@ -24,73 +23,82 @@ const Recipes = () => {
   };
 
   return (
-    <div className="container mt-4">
-      <Search />
-      <NewRecipe recipes={recipes}/>
+    <div className="container">
+      <div className="d-flex align-items-center mb-4">
+        <div className="flex-grow-1 mt-5">
+          <Search />
+        </div>
+
+        <button
+          className="bbtnsuccess mr-5"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#newRecipe"
+        >
+          New recipe
+        </button>
+      </div>
+
+      <NewRecipe recipes={recipes} />
       <EditRecipe id={selectedRecipeId} title={selectedRecipeTitle} />
       <DeleteRecipe id={selectedRecipeId} title={selectedRecipeTitle} />
 
-      <button
-        className="bbtnsuccess"
-        type="button"
-        data-bs-toggle="modal"
-        data-bs-target="#newRecipe"
-      >
-        New recipe
-      </button>
-
-      <NewRecipe /> 
       <div className="row">
         {recipes.map((recipe) => {
-          return <div className="col mb-4" key={recipe._id}>
-            <div className="card h-100" style={{ width: "18rem" }}>
- <img
-          src={`${IMAGES_BASE_URL}/${recipe?.image}`}
-          className="card-img-top standard-image"
-          alt="..."
-        />
+          return (
+            <div className="col mb-4" key={recipe._id}>
+              <div className="card h-100" style={{ width: "18rem" }}>
+                <img
+                  src={`${IMAGES_BASE_URL}/${recipe?.image}`}
+                  className="card-img-top standard-image"
+                  alt="..."
+                />
 
-              <div className="card-body d-flex flex-column pb-0">
-                <h5 className="card-title">{recipe.title}</h5>
-                <p className="card-text">{recipe.ingredients}</p>
+                <div className="card-body d-flex flex-column pb-0">
+                  <h5 className="card-title">{recipe.title}</h5>
+                  <p className="card-text">{recipe.ingredients}</p>
 
-                <div className="mt-auto d-flex justify-content-between align-items-center">
-                  <p className="btnsuccess fs-4">
-                    <FaEye
-                      onClick={setSelectedRecipeId}
+                  <div className="mt-auto d-flex justify-content-between align-items-center">
+                    <button
+                      className="bbtnsuccess"
+                      type="button"
                       data-bs-toggle="modal"
                       data-bs-target="#viewRecipe"
-                      style={{ cursor: "pointer" }}
-                    />
-                  </p>
-                  <div className="d-flex">
-                    <p className="text-primary fs-4">
-                      <BiSolidEditAlt
-                        onClick={() =>
-                          handleSelectedRecipe(recipe._id, recipe.title)
-                        }
-                        data-bs-toggle="modal"
-                        data-bs-target="#editRecipe"
-                        style={{ cursor: "pointer", marginRight: "15px" }}
-                      />
-                    </p>
+                    >
+                      View more
+                    </button>
 
-                    <p className="text-danger fs-4">
-                      <MdDelete
-                        onClick={() => handleSelectedRecipe(recipe._id, recipe.title)}
-                        data-bs-toggle="modal"
-                        data-bs-target="#deleteRecipe"
-                        style={{ cursor: "pointer" }}
-                      />
-                    </p>
+                    <div className="d-flex">
+                      <p className="text-primary fs-4">
+                        <BiSolidEditAlt
+                          onClick={() =>
+                            handleSelectedRecipe(recipe._id, recipe.title)
+                          }
+                          data-bs-toggle="modal"
+                          data-bs-target="#editRecipe"
+                          style={{ cursor: "pointer", marginRight: "15px" }}
+                        />
+                      </p>
+
+                      <p className="text-danger fs-4">
+                        <MdDelete
+                          onClick={() =>
+                            handleSelectedRecipe(recipe._id, recipe.title)
+                          }
+                          data-bs-toggle="modal"
+                          data-bs-target="#deleteRecipe"
+                          style={{ cursor: "pointer" }}
+                        />
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-
-          </div>;
+          );
         })}
       </div>
+     
     </div>
   );
 };

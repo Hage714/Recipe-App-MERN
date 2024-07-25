@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
+require('dotenv').config(); 
 
 const PORT = process.env.PORT || 5000;
 const app = express();  //instance of express
@@ -27,6 +28,7 @@ const authRoutes = require("./routes/auth");
 const recipesRoutes = require("./routes/recipes");
 const personalRecipesRoutes = require("./routes/personal_recipes");
 const contributeRoutes = require("./routes/contribute");
+const importRecipesRoutes = require("./routes/importRecipes");
 
 //Base route(home page of the server)
 app.get('/', (req, res) => {
@@ -37,6 +39,7 @@ app.use("/api/v1/auth",authRoutes);
 app.use("/api/v1/recipes", recipesRoutes);
 app.use("/api/v1/my-recipes", verifyUser, personalRecipesRoutes); //only authenticated users can access this route
 app.use("/api/v1/contribute", verifyUser, contributeRoutes); //only authenticated users can access this route
+app.use("/api/v1/importRecipes", verifyUser, importRecipesRoutes); 
 
 // start the server
 app.listen(PORT, () => {
