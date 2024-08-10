@@ -1,5 +1,4 @@
 import React from "react";
-import ImportRecipe from "./ImportRecipe";
 
 const Welcome = () => {
   
@@ -122,7 +121,6 @@ const Welcome = () => {
             <div className="col-md-2"></div>
           </div>
         </div>
-<ImportRecipe />
       </div>
 
       <section className="container-fluid bg-dark text-white mt-5 p-4">

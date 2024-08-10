@@ -1,32 +1,55 @@
 const { Recipe } = require("../models/recipes");
+const auth = require("../middleware/auth");
 
 const getRecipes = async (req, res) => {
   const { title } = req.query;
-  let recipes = await Recipe.find({}).populate("creator");
 
-  if (title) {
-    //if title is found, update the recipe
-    recipes = await Recipe.find({ title: new RegExp(title, "i") });
+  try {
+    let recipes;
+
+    if (title) {
+      // If title is provided, search for recipes with the matching title created by the logged-in user
+      recipes = await Recipe.find({ title: new RegExp(title, "i") }).populate("creator");
+    } else {
+      // If no title is provided, fetch all recipes created by the logged-in user
+      recipes = await Recipe.find({ }).populate("creator");
+    }
+
+    res.status(200).send(recipes);
+  } catch (error) {
+    res.status(500).json({ message: 'Server Error' });
   }
-  res.send(recipes).status(200);
 };
 
 const createRecipe = async (req, res) => {
-  const { title, ingredients } = req.body;
-console.log(req.body);
+  const { title, ingredients, steps, category } = req.body;
+//console.log(req.body);
 
-  if (!title || !ingredients)
+  if (!title || !ingredients || !steps || !category)
     return res.status(400).send({ error: "Please fill all the fields" });
 
   try {
+    const recipeSteps = steps.split(',').map(item => item.trim());
+
     const recipe = await Recipe.create({
       title: title,
       creator: req.user.id,
       ingredients: ingredients,
+      steps: recipeSteps,
+      category: category,
       image: req.file.filename,
     });
     if (!recipe)
       return res.status(400).send({ error: "Failed to create recipe" });
+    
+    console.log({
+      title: title,
+      creator: req.user.id,
+      ingredients: ingredients,
+      steps: steps,
+      category: category,
+      image: req.file.filename,
+    })
     res.send(recipe).status(201);
   } catch (error) {
     console.log(error);
@@ -50,7 +73,7 @@ const getRecipeById = async (req, res) => {
 const updateRecipe = async (req, res) => {
   const { id } = req.params;
   const { title, ingredients } = req.body;
-
+console.log(req.body);
   if (!title || !ingredients)
     return res.status(400).send({ error: "Please fill all the fields" });
 

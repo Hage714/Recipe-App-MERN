@@ -4,11 +4,15 @@ import { BASE_URL } from "../utils/config";
 import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
 
-const Login = () => {
+const Login = ({ setShowLogin  }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  const now = new Date();
+  const expiryTime = new Date(now.getTime() + 2 * 60 * 60 * 1000); // 2 hours from now
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,18 +30,16 @@ const Login = () => {
         password,
       });
       setSuccess("Login successful!");
-      Cookies.set("token", token); // Save the token to cookies
+      Cookies.set('token', token, { expires: expiryTime });
 
       const decodedToken = jwtDecode(token);
       console.log("Decoded Token:", decodedToken);
+
+      // Redirect to home page after successful registration
+      window.location.replace("/");
     } catch (err) {
       setError(err.response?.data?.error || "Something went wrong");
     }
-  };
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    handleSubmit(e);
   };
 
   return (
@@ -91,14 +93,21 @@ const Login = () => {
               <button
                 type="submit"
                 className="btn btn-success mb-4 mt-3"
-                onClick={handleClick}
+                
               >
                 Login
               </button>
 
-              <p className="mt-4 fw-bold fs-5">
-                <a href="/register" className="text-success">CREATE AN ACCOUNT INSTEAD</a>
-              </p>
+              
+
+              <div className="text-end">
+                <button
+                  className=" border-0 mt-4"
+                  onClick={() => setShowLogin(false)}
+                >
+                  CREATE AN ACCOUNT INSTEAD
+                </button>
+              </div>
             </div>
           </form>
         </div>

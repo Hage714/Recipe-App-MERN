@@ -1,14 +1,15 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { BASE_URL } from "../utils/config";
-import axios from "axios";
-import AuthContext from "../context/AuthContext";
+import Cookies from "js-cookie";
 
 const NewRecipe = ({ recipes }) => {
   const [recipeTitle, setRecipeTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
+  const [steps, setSteps] = useState("");
+  const [recipeCategory, setRecipeCategory] = useState("");
   const [image, setImage] = useState("");
 
-  const { token } = useContext(AuthContext);
+  const token = Cookies.get('token');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,19 +17,21 @@ const NewRecipe = ({ recipes }) => {
     const formData = new FormData();
     formData.append("title", recipeTitle);
     formData.append("ingredients", ingredients);
+    formData.append("steps", steps);
+    formData.append("category", recipeCategory);
     formData.append("image", image);
 
     const recipeList = async () => {
       const response = await fetch(`${BASE_URL}/my-recipes/`, {
         method: "POST",
         headers: {
-          Accept: "*",
-          Authorization: `${token}`,
+          Accept: "*/*",
+          Authorization: token,
         },
         body: formData,
       });
       alert("Recipe added successfully!");
-      // window.location.reload();
+      window.location.replace("/recipes");
     };
     recipeList();
   };
@@ -58,7 +61,8 @@ const NewRecipe = ({ recipes }) => {
             ></button>
           </div>
           <div className="modal-body">
-            <div className="container mt-5">
+            <div className="container mt-0">
+              <p className="mb-4">Share your amazing recipes with thousands of people across the world. Fill our form to get started.</p>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3 mt-0">
                   <label htmlFor="title" className="form-label">
@@ -84,7 +88,35 @@ const NewRecipe = ({ recipes }) => {
                     onChange={(e) => setIngredients(e.target.value)}
                   />
                 </div>
-                <div className="form-group  mb-3">
+                <div className="mb-3">
+                  <label htmlFor="steps" className="form-label">
+                    Steps
+                  </label>
+                  <textarea
+                    className="form-control"
+                    id="steps"
+                    rows="4"
+                    value={steps}
+                    onChange={(e) => setSteps(e.target.value)}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="category" className="form-label">
+                    Category
+                  </label>
+                  <select
+                    className="form-control"
+                    id="category"
+                    value={recipeCategory}
+                    onChange={(e) => setRecipeCategory(e.target.value)}
+                  >
+                    <option value="" disabled>Select a category</option>
+                    <option value="Indian">Indian recipes</option>
+                    <option value="Ethiopian">Ethiopian recipes</option>
+                    <option value="Thai">Thai recipes</option>
+                  </select>
+                </div>
+                <div className="form-group mb-3">
                   <label className="form-label fw-medium">Image:</label>
                   <input
                     type="file"

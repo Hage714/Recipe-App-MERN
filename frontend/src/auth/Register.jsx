@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../utils/config";
 
-const Register = () => {
+const Register = ({ setShowLogin  }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,15 +29,11 @@ const Register = () => {
 
       localStorage.setItem("userInfo", JSON.stringify(data));
 
-      window.location.replace("/");
+      // Redirect to login page after successful registration
+      window.location.replace("/login");
     } catch (err) {
       setError(err.response?.data?.error || "Something went wrong");
     }
-  };
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    handleSubmit(e);
   };
 
   return (
@@ -102,16 +98,18 @@ const Register = () => {
               <button
                 type="submit"
                 className="btn btn-success"
-                onClick={handleClick}
+                
               >
                 Register
               </button>
 
-              <p className="mt-2 fw-bold fs-5">
-                <a href="/login" className="text-success">
+              
+
+              <div className="text-end">
+                <button className="border-0" onClick={() => setShowLogin(true)}>
                   LOG IN INSTEAD
-                </a>
-              </p>
+                </button>
+              </div>
             </div>
           </form>
         </div>

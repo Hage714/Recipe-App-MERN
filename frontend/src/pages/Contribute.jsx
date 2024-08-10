@@ -25,7 +25,7 @@ const Contribute = () => {
             Unfortunately, ThisRecipe doesn't get many donations since it is a
             fairly small platform. In order to keep things free while paying for
             server costs, we need your help. Please reconsider - your
-            contribution is truly appreciated!
+            contribution is truly appreciated! 
           </p>
           <p className="mb-4">
             My goal is to keep ThisRecipe open to anyone, without burdening the

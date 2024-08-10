@@ -28,7 +28,8 @@ const authRoutes = require("./routes/auth");
 const recipesRoutes = require("./routes/recipes");
 const personalRecipesRoutes = require("./routes/personal_recipes");
 const contributeRoutes = require("./routes/contribute");
-const importRecipesRoutes = require("./routes/importRecipes");
+const collectionsRoutes = require("./routes/collections");
+const commentsRoutes = require("./routes/comments");
 
 //Base route(home page of the server)
 app.get('/', (req, res) => {
@@ -39,7 +40,8 @@ app.use("/api/v1/auth",authRoutes);
 app.use("/api/v1/recipes", recipesRoutes);
 app.use("/api/v1/my-recipes", verifyUser, personalRecipesRoutes); //only authenticated users can access this route
 app.use("/api/v1/contribute", verifyUser, contributeRoutes); //only authenticated users can access this route
-app.use("/api/v1/importRecipes", verifyUser, importRecipesRoutes); 
+app.use("/api/v1/collections", verifyUser, collectionsRoutes); //only authenticated users can access this route
+app.use("/api/v1/comments", commentsRoutes); 
 
 // start the server
 app.listen(PORT, () => {

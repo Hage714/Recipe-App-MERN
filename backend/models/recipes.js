@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); 
 
 const RecipeSchema = new mongoose.Schema({
     title: String,
@@ -8,11 +8,35 @@ const RecipeSchema = new mongoose.Schema({
         ref: 'User'
     },
     ingredients: Array,
-    createdAt: {
+    steps: Array,
+    category: String,
+    averageRating: { 
+        type: Number,
+         default: 0
+         },
+createdAt: {
         type: Date,
         default: Date.now
     }
 });
+
+//method to calculate the average rating
+RecipeSchema.methods.calculateAverageRating = async function () {
+    const Comment = mongoose.model('Comment');
+    const comments = await Comment.find({ recipe: this._id });
+
+    if (comments.length === 0) {
+        this.averageRating = 0;
+    } else {
+        // Calculate the total rating and the average rating
+        const totalRating = comments.reduce((sum, comment) => sum + comment.rating, 0);
+        this.averageRating = totalRating / comments.length;
+    }
+
+    await this.save();
+};
+
+
 
 
 const RecipeStepsSchema = new mongoose.Schema({

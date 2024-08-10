@@ -4,7 +4,7 @@ const newConnectionString = "mongodb+srv://hagewoche99:Hage1234@cluster0.vlcxe5t
 
 const connectDatabase = async () => {
     await mongoose
-        .connect(newConnectionString)
+        .connect(connectionString)
         .then(() => console.log('Database connected successfully'))
         .catch(error => console.log('Failed to connect to MongoDB'))
 }

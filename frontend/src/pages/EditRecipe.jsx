@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../utils/config";
 
@@ -14,7 +13,8 @@ const EditRecipe = ({ id, title }) => {
       try {
         const { data } = await axios.get(`${BASE_URL}/recipes/${id}`);
         setRecipeTitle(data.title);
-        setIngredients(data.ingredients);
+        setIngredients(data.ingredients.join(","));
+        console.log(data.ingredients.join(","));
       } catch (error) {
         console.error(error);
         setError("Failed to fetch recipe");

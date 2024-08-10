@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { BASE_URL, IMAGES_BASE_URL } from "../utils/config";
-import { FaEye } from "react-icons/fa";
 import { BiSolidEditAlt } from "react-icons/bi";
 import { MdDelete } from "react-icons/md";
-import ViewRecipe from "./ViewRecipe";
 import EditRecipe from "./EditRecipe";
 import DeleteRecipe from "./DeleteRecipe";
+import { FacebookShareButton, TwitterShareButton, EmailShareButton, WhatsappShareButton } from 'react-share';
+import { FacebookIcon, TwitterIcon, EmailIcon, WhatsappIcon } from 'react-share';
 
 const RecipeCard = ({ recipe }) => {
   const [selectedRecipeId, setSelectedRecipeId] = useState(null);
@@ -15,6 +15,10 @@ const RecipeCard = ({ recipe }) => {
     setSelectedRecipeId(id);
     setSelectedRecipeTitle(title);
   };
+
+  const shareUrl = `${BASE_URL}/recipes/${recipe._id}`;
+  console.log(shareUrl);
+
 
   return (
     <div className="col mb-4">
@@ -27,16 +31,11 @@ const RecipeCard = ({ recipe }) => {
         <div className="card-body d-flex flex-column pb-0">
           <h5 className="card-title">{recipe.title}</h5>
           <p className="card-text">{recipe.ingredients}</p>
+          <p className="card-text">{recipe.category}</p>
+          <p>Average Rating: {recipe.averageRating.toFixed(1)}</p>
 
           <div className="mt-auto d-flex justify-content-between align-items-center">
-            <p className="text-primary-emphasis fs-4">
-              <FaEye
-                onClick={setSelectedRecipeId}
-                data-bs-toggle="modal"
-                data-bs-target="#viewRecipe"
-                style={{ cursor: "pointer" }}
-              />
-            </p>
+            
             <div className="d-flex">
               <p className="text-primary fs-4">
                 <BiSolidEditAlt
@@ -58,9 +57,23 @@ const RecipeCard = ({ recipe }) => {
             </div>
           </div>
         </div>
+
+        <div className="d-flex justify-content-between mt-3">
+          <FacebookShareButton url={shareUrl} quote={recipe.title}>
+            <FacebookIcon size={32} round />
+          </FacebookShareButton>
+          <TwitterShareButton url={shareUrl} title={recipe.title}>
+            <TwitterIcon size={32} round />
+          </TwitterShareButton>
+          <WhatsappShareButton url={shareUrl} title={recipe.title}>
+            <WhatsappIcon size={32} round />
+          </WhatsappShareButton>
+          <EmailShareButton url={shareUrl} subject={recipe.title} body={`Check out this recipe: ${recipe.title}\n${shareUrl}`}>
+            <EmailIcon size={32} round />
+          </EmailShareButton>
+        </div>
       </div>
 
-      <ViewRecipe />
       <EditRecipe id={selectedRecipeId} title={selectedRecipeTitle} />
       <DeleteRecipe />
     </div>
