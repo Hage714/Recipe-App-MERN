@@ -1,8 +1,6 @@
 import React from "react";
 
 const Welcome = () => {
-  
-
   return (
     <div>
       <div className=" m-5">
@@ -123,44 +121,52 @@ const Welcome = () => {
         </div>
       </div>
 
-      <section className="container-fluid bg-dark text-white mt-5 p-4">
-        <h4
-          className="mb-4 mt-5 text-center fs-3"
-          style={{
-            fontFamily:
-              "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif",
-          }}
-        >
-          ThisRecipe!
-        </h4>
-        <p>
-          Any aspiring cook knows that being skilled in the kitchen comes with
-          some organizational challenges. You have to find a place for all the
-          tools you accumulate over time, and figure out how to use all those
-          highly specific ingredients that are now overflowing your cupboards.
-          And then there are the recipes.{" "}
-        </p>
-        <p>
-          The app also has a social element, so you can share recipes with
-          fellow Whisk users and review the ones you’ve tried. People in the
-          community can also collaborate and create collections of recipes based
-          on cuisine, meal, cook time, and more.{" "}
-        </p>
-        <h4
-          className="mt-5"
-          style={{
-            fontFamily:
-              "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif",
-          }}
-        >
-          Why ThisRecipe?
-        </h4>
-        <ul className="mb-5">
-          <li>Easy to use</li>
-          <li>Available on desktop and all mobile devices</li>
-          <li>Open source</li>
-        </ul>{" "}
-      </section>
+      <div className="container mt-5">
+        <div className="row">
+          <div className="col-md-1"></div>
+          <div className="col-md-10">
+            <section className="container-fluid bg-success text-white mt-4 p-4">
+              <h4
+                className="mb-4 mt-5 text-center fs-3"
+                style={{
+                  fontFamily:
+                    "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif",
+                }}
+              >
+                ThisRecipe!
+              </h4>
+              <p>
+                Any aspiring cook knows that being skilled in the kitchen comes
+                with some organizational challenges. You have to find a place
+                for all the tools you accumulate over time, and figure out how
+                to use all those highly specific ingredients that are now
+                overflowing your cupboards. And then there are the recipes.{" "}
+              </p>
+              <p>
+                The app also has a social element, so you can share recipes with
+                fellow Whisk users and review the ones you’ve tried. People in
+                the community can also collaborate and create collections of
+                recipes based on cuisine, meal, cook time, and more.{" "}
+              </p>
+              <h4
+                className="mt-5"
+                style={{
+                  fontFamily:
+                    "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif",
+                }}
+              >
+                Why ThisRecipe?
+              </h4>
+              <ul className="mb-5">
+                <li>Easy to use</li>
+                <li>Available on desktop and all mobile devices</li>
+                <li>Open source</li>
+              </ul>{" "}
+            </section>
+          </div>
+          <div className="col-md-1"></div>
+        </div>
+      </div>
     </div>
   );
 };

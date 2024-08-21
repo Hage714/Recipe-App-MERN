@@ -111,9 +111,9 @@ const NewRecipe = ({ recipes }) => {
                     onChange={(e) => setRecipeCategory(e.target.value)}
                   >
                     <option value="" disabled>Select a category</option>
-                    <option value="Indian">Indian recipes</option>
-                    <option value="Ethiopian">Ethiopian recipes</option>
-                    <option value="Thai">Thai recipes</option>
+                    <option value="Indian Recipes">Indian recipes</option>
+                    <option value="Ethiopian Recipes">Ethiopian recipes</option>
+                    <option value="Thai Recipes">Thai recipes</option>
                   </select>
                 </div>
                 <div className="form-group mb-3">

@@ -13,7 +13,7 @@ const EditRecipe = ({ id, title }) => {
       try {
         const { data } = await axios.get(`${BASE_URL}/recipes/${id}`);
         setRecipeTitle(data.title);
-        setIngredients(data.ingredients.join(","));
+        setIngredients(data.ingredients.join(",")); //joining the ingredients array
         console.log(data.ingredients.join(","));
       } catch (error) {
         console.error(error);

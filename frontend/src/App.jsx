@@ -10,6 +10,7 @@ import Contribute from "./pages/Contribute";
 import TermsOfService from "./pages/TermsOfService";
 import MyCollections from "./pages/MyCollections";
 import CommentForm from "./pages/CommentForm";
+import RecipeDetailPage from "./pages/RecipeDetailPage";
 
 import RecipeForm from "./pages/RecipeForm";
 
@@ -31,6 +32,7 @@ function App() {
               <Route path="/mycollections" element={<MyCollections />} />
               <Route path="/commentform" element={<CommentForm />} />
               <Route path="/recipeform" element={<RecipeForm />} />
+              <Route path="/recipe/:id" element={ <RecipeDetailPage />} />
             </Routes>
           </main>
           <Footer />
