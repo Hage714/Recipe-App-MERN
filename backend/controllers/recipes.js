@@ -22,7 +22,7 @@ const getRecipes = async (req, res) => {
 };
 
 const createRecipe = async (req, res) => {
-  const { title, ingredients, steps, category } = req.body;
+  const { title, ingredients, steps, category, type } = req.body;
 //console.log(req.body);
 
   if (!title || !ingredients || !steps || !category)
@@ -37,6 +37,7 @@ const createRecipe = async (req, res) => {
       ingredients: ingredients,
       steps: recipeSteps,
       category: category,
+      type: type,
       image: req.file.filename,
     });
     if (!recipe)
@@ -48,6 +49,7 @@ const createRecipe = async (req, res) => {
       ingredients: ingredients,
       steps: steps,
       category: category,
+      type: type,
       image: req.file.filename,
     })
     res.send(recipe).status(201);

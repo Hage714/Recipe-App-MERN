@@ -2,7 +2,7 @@ import React from "react";
 
 const Welcome = () => {
   return (
-    <div>
+    <div className="bgc pt-3">
       <div className=" m-5">
         <h2 className="mb-5 text-center" style={{ fontFamily: "fantasy" }}>
           Welcome to RecipeApp!

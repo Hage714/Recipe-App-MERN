@@ -7,7 +7,7 @@ const Contribute = () => {
     
 
   return (
-    <div className="container">
+    <div className="container bgc">
       <div className="row">
         <div className="col-md-2"></div>
         <div className="col-md-8 mt-5">

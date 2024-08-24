@@ -30,6 +30,7 @@ const personalRecipesRoutes = require("./routes/personal_recipes");
 const contributeRoutes = require("./routes/contribute");
 const collectionsRoutes = require("./routes/collections");
 const commentsRoutes = require("./routes/comments");
+const userRoutes = require("./routes/user");
 
 //Base route(home page of the server)
 app.get('/', (req, res) => {
@@ -42,6 +43,7 @@ app.use("/api/v1/my-recipes", verifyUser, personalRecipesRoutes); //only authent
 app.use("/api/v1/contribute", verifyUser, contributeRoutes); //only authenticated users can access this route
 app.use("/api/v1/collections", verifyUser, collectionsRoutes); //only authenticated users can access this route
 app.use("/api/v1/comments", commentsRoutes); 
+app.use("/api/v1/user", userRoutes);  //user routes for managing user data
 
 // start the server
 app.listen(PORT, () => {

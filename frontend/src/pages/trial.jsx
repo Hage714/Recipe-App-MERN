@@ -746,3 +746,7 @@ export default RecipeDetailPage;
   };
 
   export default MyCollections;
+
+
+
+  

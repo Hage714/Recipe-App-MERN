@@ -7,6 +7,7 @@ const NewRecipe = ({ recipes }) => {
   const [ingredients, setIngredients] = useState("");
   const [steps, setSteps] = useState("");
   const [recipeCategory, setRecipeCategory] = useState("");
+  const [recipeType, setRecipeType] = useState("");
   const [image, setImage] = useState("");
 
   const token = Cookies.get('token');
@@ -19,6 +20,7 @@ const NewRecipe = ({ recipes }) => {
     formData.append("ingredients", ingredients);
     formData.append("steps", steps);
     formData.append("category", recipeCategory);
+    formData.append("type", recipeType);
     formData.append("image", image);
 
     const recipeList = async () => {
@@ -114,6 +116,25 @@ const NewRecipe = ({ recipes }) => {
                     <option value="Indian Recipes">Indian recipes</option>
                     <option value="Ethiopian Recipes">Ethiopian recipes</option>
                     <option value="Thai Recipes">Thai recipes</option>
+                  </select>
+                </div>
+
+                <div className="mb-3">
+                  <label htmlFor="recipe_type" className="form-label">
+                    Recipe type
+                  </label>
+                  <select
+                    className="form-control"
+                    id="type"
+                    value={recipeType}
+                    onChange={(e) => setRecipeType(e.target.value)}
+                  >
+                    <option value="" disabled>Select a recipe type</option>
+                    <option value="Appetizers">Appetizers</option>
+                    <option value="Main Course">Main Course</option>
+                    <option value="Desserts">Desserts</option>
+                    <option value="Drinks">Drinks</option>
+
                   </select>
                 </div>
                 <div className="form-group mb-3">

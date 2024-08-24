@@ -10,6 +10,7 @@ const RecipeSchema = new mongoose.Schema({
     ingredients: Array,
     steps: Array,
     category: String,
+    type: String,
     averageRating: { 
         type: Number,
          default: 0

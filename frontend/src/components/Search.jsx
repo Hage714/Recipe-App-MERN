@@ -24,7 +24,7 @@ if (title) {
     <div className="row mb-5">
       <div className="col-lg-6 offset-lg-3">
         <form className="form-inline" onSubmit={handleSearch}>
-          <input className="form-control mr-sm-2" type="search" placeholder="Search recipes..." value={title} onChange={(e) => setTitle(e.target.value)} aria-label="Search"/>
+          <input className="form-control mr-sm-2 fw-bold" type="search" placeholder="Search recipes..." value={title} onChange={(e) => setTitle(e.target.value)} aria-label="Search" style={{ width: '300px' }} />
           <input type='submit' hidden />
         </form>
       </div>

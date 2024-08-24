@@ -176,13 +176,12 @@ h1 {
 }
 
 .recipe-container {
-    max-width: 800px;
+        background-color: rgb(196, 236, 196);
     margin: 0 auto;
     padding: 20px;
 }
 
 .recipe-details {
-    background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -190,13 +189,22 @@ h1 {
 
 .recipe-image {
     width: 100%;
+    /* Make the image responsive to container width */
+    max-width: 600px;
+    /* Set a maximum width to prevent it from becoming too large */
     height: auto;
+    /* Maintain aspect ratio */
     border-radius: 8px;
-    margin-bottom: 20px;
+    /* Optional: add rounded corners */
+    object-fit: cover;
+    /* Optional: ensure the image covers the container without stretching */
+    display: block;
+    /* Ensure the image is displayed as a block element */
+    margin: 0 auto;
+    /* Center the image horizontally */
 }
 
 .steps-list {
-    list-style-type: decimal;
     margin-left: 20px;
 }
 
@@ -205,8 +213,8 @@ h1 {
 }
 
 .comment {
-    background-color: #f9f9f9;
-    padding: 10px;
+    background-color: #d0f0d8;
+        padding: 10px;
     border-radius: 5px;
     margin-bottom: 15px;
 }
@@ -242,12 +250,187 @@ button {
 }
 
 button {
-    background-color: #007bff;
+    background-color: green;
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: rgb(125, 187, 125);
+    color: black;
+}
+
+.star-rating {
+    font-size: 24px;
+    /* Adjust the size as needed */
+    color: green;
+    /* Adjust the color as needed */
+}
+
+.star-rating .empty-star {
+    color: #ddd;
+    /* Color for empty stars */
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+}
+
+.back-button-container {
+    margin-top: auto;
+        text-align: center;
+        padding: 20px;
+}
+
+.icon-hover {
+    transition: outline 0.3s ease-in-out;
+}
+
+.icon-hover:hover {
+    outline: 2px solid green;
+    border-radius: 5px;
+    /* Adjust the radius if you want rounded corners */
+}
+
+.custom-card-spacing {
+    margin-right: 0 !important;
+    /* Remove the margin-right */
+}
+
+.scrollable-row {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* Ensure vertical scroll is not applied */
+    white-space: nowrap;
+    /* Ensure horizontal scroll works */
+}
+
+.scrollable-row .col {
+    flex: 0 0 auto;
+    /* Prevent columns from shrinking or growing */
+}
+
+.custom-card-spacing:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-link.active {
+    font-weight: bold;
+    background-color: rgb(194, 212, 194);
+    border-radius: 25px;
+    text-decoration: none;
+    /* Background for active link */
+}
+
+.nav-link{
+    text-decoration: underline;
+    font-size: x-large;
+    line-height: 1.5;
+}
+
+.nav-link:hover {
+    color: #aec7b4;
+    /* Hover link color */
+    background-color: #e9ecef;
+    /* Background color on hover */
+}
+
+.bgc{
+    background-color: #e5ece7;
+}
+/* Container for the cards */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusts the number of columns based on screen width */
+  gap: 1.5rem; /* Space between cards */
+  margin-bottom: 3rem; /* Space below each category */
+}
+
+/* Style for individual cards */
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #ddd; /* Border color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  margin-bottom: 0.5rem;
+}
+
+.btn-outline-success {
+  margin-top: auto; /* Pushes the button to the bottom */
+}
+
+
+
+.statistics .card {
+    background-color: #aec7b4; 
+    border-radius: 75px 5px;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+.statistics .card:hover {
+    transform: translateY(-5px);
+    border-radius: 5px 75px;
+    background-color: rgb(227, 235, 227);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: white;
+}
+
+p {
+    color: black;
+}
+
+.cardhome:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(197, 103, 103, 0.2);
+    transition: all 0.3s ease;
+}
+
+.social-icons i {
+    /* Default color (green) */
+    transition: color 0.3s;
+    /* Smooth transition effect */
+}
+
+.social-icons i:hover {
+    color: #000;
+    /* Color on hover (black) */
 }

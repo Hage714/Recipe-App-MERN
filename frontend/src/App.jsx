@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Footer from "./components/Footer";
 
 import Navbar from "./components/Navbar"
+import HomePage from "./pages/HomePage";
 import Authenticate from "./auth/Authenticate";
 import Recipes from "./pages/Recipes";
 import Welcome from "./pages/Welcome";
@@ -23,9 +24,10 @@ function App() {
           <main className="flex-grow-1">
             <Navbar />
             <Routes>
+              <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<Authenticate />} />
               <Route path="/register" element={<Authenticate />} />
-              <Route path="/" element={<Recipes />} />
+              <Route path="/recipes" element={<Recipes />} />
               <Route path="/about" element={<Welcome />} />
               <Route path="/contribute" element={<Contribute />} />
               <Route path="/terms" element={<TermsOfService />} />
