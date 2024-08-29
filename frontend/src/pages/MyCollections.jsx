@@ -19,6 +19,9 @@ const MyCollections = () => {
 
   const token = Cookies.get("token");
 
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log(user)
+
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -30,7 +33,7 @@ const MyCollections = () => {
           },
         });
         const data = await response.json();
-        setUserName(data.name); // Assuming the response contains a 'name' field
+        setUserName(data.name); 
       } catch (error) {
         console.error("Error fetching user", error);
       }
@@ -73,9 +76,6 @@ const MyCollections = () => {
     );
   }
 
-
-
-
   const sortedRecipes = filteredRecipes.sort((a, b) => {
     if (sort === "recent") {
       return new Date(b.createdAt) - new Date(a.createdAt);
@@ -102,18 +102,22 @@ const MyCollections = () => {
   return (
     <div className="container pt-4">
       <div className="row">
-<div className="col-3">
-      <div className="d-flex align-items-center mb-4">
-        <img
-          src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="User Avatar"
-          className="rounded-circle me-3"
-          style={{ width: "50px", height: "50px", objectFit: "cover" }}
-        />
-            <h2 className="mb-0">Hello, {userName}</h2>
-      </div>
-      </div>
-      <div className="col-4">
+        <div className="col-md-3 col-sm-12 p-4 ">
+          <div className="d-flex align-items-center mb-4">
+            <img
+              src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="User Avatar"
+              className="rounded-circle me-3"
+              style={{ width: "50px", height: "50px", objectFit: "cover", transition: "transform 0.3s ease-in-out" }}
+              onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
+              onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
+            />
+            <h3 className="mb-0" >
+              Hello, {user.name}
+            </h3>
+                      </div>
+        </div>
+      <div className="col-md-4 col-sm-12">
           <div className="statistics mb-4">
             <div className="card shadow-sm border-0">
               <div className="card-body p-4">
@@ -133,7 +137,7 @@ const MyCollections = () => {
 
 
       </div>
-      <div className="col-5">
+      <div className="col-md-5">
         
           <p className="text-center mb-4">
             Welcome! Here, you can manage and view all the recipes you've added.
@@ -148,7 +152,7 @@ const MyCollections = () => {
         
 
         <button
-          className="btn btn-success mr-5"
+          className="btn collectionbtn mr-5"
           type="button"
           data-bs-toggle="modal"
           data-bs-target="#newRecipe"
@@ -162,7 +166,7 @@ const MyCollections = () => {
       
 
 
-
+{recipes.length > 0 &&
       <div className="d-flex justify-content-between mb-4">
         <div className="sorting-options">
             <label>
@@ -184,7 +188,7 @@ const MyCollections = () => {
           </select>
         </div>
       </div>
-
+      }
       <EditRecipe id={selectedRecipeId} title={selectedRecipeTitle} />
       <DeleteRecipe id={selectedRecipeId} title={selectedRecipeTitle} />
 
@@ -202,7 +206,7 @@ const MyCollections = () => {
                 <h5 className="card-title text-center fs-4">{recipe.title}</h5>
                 <p className="card-text"><strong>Ingredients:</strong> {recipe.ingredients.join(", ")}</p>
                 <div className="mt-auto d-flex justify-content-between align-items-center">
-                  <Link to={`/recipe/${recipe._id}`} className="btn btn-outline-success">
+                  <Link to={`/recipe/${recipe._id}`} className="btn homebtn">
                     View more
                   </Link>
                   <div className="d-flex">

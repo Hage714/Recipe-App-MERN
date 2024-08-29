@@ -38,19 +38,19 @@ const Recipes = () => {
   return (
     <div className="container">
       
+      <div className="row mt-3">
+        <div className="d-flex justify-content-between align-items-center">
 
-
-      <div className="d-flex align-items-center mb-3" style={{ gap: '1rem' }}>
-        <div className="d-flex flex-grow-5 mt-4 align-items-center" style={{ marginRight: 'auto' }}>
+          <div className="  col-md-4 col-sm-12 d-flex justify-content-start">
           <Search />
         </div>
-        <div className="d-flex align-items-center mb-4">
-          <label htmlFor="filterType" className="form-label me-2 mt-3">Filter by Recipe Type:</label>
+          <div className=" col-md-4 col-sm-12 justify-content-center">
+          <label htmlFor="filterType" className="form-label">Filter by Recipe Type:</label>
           <select
             id="filterType"
             className="form-control"
             value={selectedType}
-            onChange={(e) => setSelectedType(e.target.value)} style={{ width: '250px' }}
+            onChange={(e) => setSelectedType(e.target.value)} style={{ width: 'auto' }}
           >
             <option value="">All Types</option>
             <option value="Appetizers">Appetizers</option>
@@ -59,10 +59,10 @@ const Recipes = () => {
             <option value="Drinks">Drinks</option>
           </select>
         </div>
-        <div className="ms-3 mb-4">
+          <div className=" col-md-4 col-sm-12 d-flex justify-content-end">
         {token ? (
           <button
-            className="btn btn-success mr-5"
+              className="btn recipesbtn mr-5 "
             type="button"
             data-bs-toggle="modal"
             data-bs-target="#newRecipe"
@@ -71,7 +71,7 @@ const Recipes = () => {
           </button>
         ) : (
           <button
-            className="btn btn-success mr-5"
+                className="btn homebtn3 mr-5"
             type="button"
             onClick={() => navigate("/register")}
           >
@@ -80,6 +80,8 @@ const Recipes = () => {
         )}
         </div>
       </div>
+      </div>
+
 
       <NewRecipe recipes={recipes} />
 
@@ -105,7 +107,7 @@ const Recipes = () => {
                     <div className="mt-auto d-flex justify-content-between align-items-center">
                       <Link
                         to={`/recipe/${recipe._id}`}
-                        className="btn btn-outline-success mt-4"
+                        className="btn homebtn mt-4"
                       >
                         View more
                       </Link>

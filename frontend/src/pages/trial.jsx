@@ -750,3 +750,72 @@ export default RecipeDetailPage;
 
 
   
+  import React, { useState } from "react";
+  import { useLocation } from "react-router-dom";
+  import Login from "./Login";
+  import Registration from "./Register";
+
+  const Authenticate = () => {
+    const location = useLocation();
+    const isLogin = location.pathname === "/login";
+    const [showLogin, setShowLogin] = useState(isLogin);
+
+    // Update `showLogin` based on the current path
+    React.useEffect(() => {
+      setShowLogin(isLogin);
+    }, [location.pathname, isLogin]);
+
+    return (
+      <>
+        {showLogin ? (
+          <Login setShowLogin={setShowLogin} />
+        ) : (
+          <Registration setShowLogin={setShowLogin} />
+        )}
+      </>
+    );
+  };
+
+  export default Authenticate;
+
+
+  <div className="d-flex align-items-center mb-3" style={{ gap: '1rem' }}>
+    <div className="d-flex flex-grow-5 mt-4 align-items-center" style={{ marginRight: 'auto' }}>
+      <Search />
+    </div>
+    <div className="d-flex align-items-center mb-4">
+      <label htmlFor="filterType" className="form-label me-2 mt-3">Filter by Recipe Type:</label>
+      <select
+        id="filterType"
+        className="form-control"
+        value={selectedType}
+        onChange={(e) => setSelectedType(e.target.value)} style={{ width: '250px' }}
+      >
+        <option value="">All Types</option>
+        <option value="Appetizers">Appetizers</option>
+        <option value="Main Course">Main Course</option>
+        <option value="Desserts">Desserts</option>
+        <option value="Drinks">Drinks</option>
+      </select>
+    </div>
+    <div className="ms-3 mb-4">
+      {token ? (
+        <button
+          className="btn recipesbtn mr-5"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#newRecipe"
+        >
+          New recipe
+        </button>
+      ) : (
+        <button
+          className="btn homebtn3 mr-5"
+          type="button"
+          onClick={() => navigate("/register")}
+        >
+          New recipe
+        </button>
+      )}
+    </div>
+  </div>

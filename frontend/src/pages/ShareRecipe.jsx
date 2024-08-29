@@ -29,7 +29,7 @@ const ShareRecipe = ({ recipe }) => {
 
   return (
     <div className="mt-3">
-      <button className="btn text-success" onClick={toggleShareOptions}>
+      <button className="btn icon-hover" onClick={toggleShareOptions}>
         <FaShareAlt size={20} />
       </button>
 

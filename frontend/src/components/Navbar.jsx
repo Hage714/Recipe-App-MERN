@@ -22,6 +22,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     Cookies.remove("token"); // remove the token from cookies
+    localStorage.removeItem("user");
     setIsLoggedIn(false); // update state to reflect logout
     setActiveItem(""); // Clear active item on logout
     navigate("/login"); // navigate to the login page

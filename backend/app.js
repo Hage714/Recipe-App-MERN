@@ -31,6 +31,8 @@ const contributeRoutes = require("./routes/contribute");
 const collectionsRoutes = require("./routes/collections");
 const commentsRoutes = require("./routes/comments");
 const userRoutes = require("./routes/user");
+const forgotPasswordRoutes = require("./routes/forgotPassword");
+const resetPasswordRoutes = require("./routes/resetPassword");
 
 //Base route(home page of the server)
 app.get('/', (req, res) => {
@@ -44,6 +46,8 @@ app.use("/api/v1/contribute", verifyUser, contributeRoutes); //only authenticate
 app.use("/api/v1/collections", verifyUser, collectionsRoutes); //only authenticated users can access this route
 app.use("/api/v1/comments", commentsRoutes); 
 app.use("/api/v1/user", userRoutes);  //user routes for managing user data
+app.use("/api/v1/forgot-password", forgotPasswordRoutes);  //forgot password routes
+app.use("/api/v1/reset-password", resetPasswordRoutes);  //reset password routes
 
 // start the server
 app.listen(PORT, () => {

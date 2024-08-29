@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../utils/config";
 import Cookies from "js-cookie";
-import { jwtDecode } from "jwt-decode";
+import { jwtDecode } from "jwt-decode";             
 
-const Login = ({ setShowLogin  }) => {
+const Login = ({ setShowLogin, setShowForgotPassword  }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -34,8 +34,7 @@ const Login = ({ setShowLogin  }) => {
 
       const decodedToken = jwtDecode(token);
       console.log("Decoded Token:", decodedToken);
-
-      // Redirect to home page after successful registration
+localStorage.setItem("user", JSON.stringify(decodedToken.user));
       window.location.replace("/");
     } catch (err) {
       setError(err.response?.data?.error || "Something went wrong");
@@ -98,7 +97,15 @@ const Login = ({ setShowLogin  }) => {
                 Login
               </button>
 
-              
+              <div className="text-center mt-2">
+                <button
+                  type="button"
+                  className="btn btn-link"
+                  onClick={() => setShowForgotPassword(true)}
+                >
+                  Forgot Password?
+                </button>
+              </div>
 
               <div className="text-end">
                 <button

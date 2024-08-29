@@ -67,33 +67,9 @@
     padding: 10px;
 }
 
-.btnsuccess{
-        color: green;
-}
-.bbtnsuccess{
-    background-color: green;
-    padding: 6px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-}
 
-.bbbtnsuccess {
-    background-color: green;
-    padding: 9px 30px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-}
 
-.bbbtnsuccess:hover{
-    background-color: rgb(41, 70, 41);
-}
-.bbtnsuccess:hover{
-    background-color: rgb(1, 41, 1);
-}
+
 
 .bgcolor{
     background-color: #a5f5b8;
@@ -108,22 +84,7 @@ h1 {
     /* Space between the heading and the button */
 }
 
-.btnview {
-    padding: 10px 20px;
-    margin-top: 100px;
-    font-size: 1rem;
-    background-color: green;
-    /* Change this to your preferred color */
-    color: white;
-    border: none;
-    border-radius: 27px;
-    cursor: pointer;
-}
 
-.btnview:hover {
-    background-color: rgb(80, 218, 80);
-    /* Darker shade for hover effect */
-}
 
 .line_btn {
     display: inline-block;
@@ -140,15 +101,7 @@ h1 {
     text-decoration: none;
 }
 
-/* line 230, ../../Arafath/CL/CL October/220 Tasty Recipes/HTML/scss/_btn.scss */
-.line_btn:hover {
-    background: rgb(57, 179, 57);
-    color: #fff;
-}
 
-.hovercolor:hover {
-    color: green;
-}
 
 .scrollable-row {
     display: flex;
@@ -241,28 +194,17 @@ textarea {
     border: 1px solid #ccc;
 }
 
-select,
-button {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-top: 10px;
-}
-
-button {
-    background-color: green;
+.btnsubmit{
+    padding: 10px 20px;
+    background-color: #28a745;
     color: #fff;
+    border: none;
+    border-radius: 25px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: rgb(125, 187, 125);
-    color: black;
 }
 
 .star-rating {
-    font-size: 24px;
+    font-size: 25px;
     /* Adjust the size as needed */
     color: green;
     /* Adjust the color as needed */
@@ -291,12 +233,12 @@ button:hover {
 
 .icon-hover {
     transition: outline 0.3s ease-in-out;
+    color: green;
 }
 
 .icon-hover:hover {
     outline: 2px solid green;
-    border-radius: 5px;
-    /* Adjust the radius if you want rounded corners */
+    border-radius: 15px;
 }
 
 .custom-card-spacing {
@@ -340,15 +282,12 @@ button:hover {
 
 .nav-link:hover {
     color: #aec7b4;
-    /* Hover link color */
     background-color: #e9ecef;
-    /* Background color on hover */
 }
 
 .bgc{
     background-color: #e5ece7;
 }
-/* Container for the cards */
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusts the number of columns based on screen width */
@@ -387,10 +326,6 @@ button:hover {
   margin-bottom: 0.5rem;
 }
 
-.btn-outline-success {
-  margin-top: auto; /* Pushes the button to the bottom */
-}
-
 
 
 .statistics .card {
@@ -423,7 +358,9 @@ p {
     box-shadow: 0 8px 15px rgba(197, 103, 103, 0.2);
     transition: all 0.3s ease;
 }
-
+ .soc-icon{
+color: green;
+ }
 .social-icons i {
     /* Default color (green) */
     transition: color 0.3s;
@@ -432,5 +369,86 @@ p {
 
 .social-icons i:hover {
     color: #000;
-    /* Color on hover (black) */
 }
+
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 60%;
+}
+
+.marquee-text {
+    display: inline-block;
+    animation: marquee 3s linear infinite alternate;
+    font-family: fantasy;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.homebtn{
+    background-color: black;
+    color: white;
+    border-radius: 35px;
+    width: 50%;
+}
+
+.homebtn1{
+    background-color: black;
+        color: white;
+        border-radius: 35px;
+    width: 20%;
+}
+
+.homebtn2{
+    background-color: white;
+        color: black;
+        border-radius: 35px;
+    width: auto;
+}
+.collectionbtn{
+    background-color: green;
+    color: white;
+    border-radius: 35px;
+    width: 15%;
+}
+.recipesbtn {
+    background-color: green;
+    color: white;
+    border-radius: 35px;
+    width: auto;
+}
+.collectionbtn:hover{
+    background-color: black;
+        color: white;
+
+}
+.recipesbtn:hover {
+    background-color: black;
+    color: white;
+}
+
+.homebtn:hover{
+    background-color: green;
+    color: white;
+}
+
+.homebtn1:hover {
+    background-color: green;
+        color: white;
+}
+.homebtn2:hover {
+    background-color: green;
+        color: white;
+}
+.contributetext{
+    color: green;
+}
+

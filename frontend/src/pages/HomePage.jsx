@@ -21,15 +21,26 @@ const HomePage = () => {
         .sort((a, b) => b.averageRating - a.averageRating) // Sort by highest rating
         .slice(0, 3); // Get top 3 recipes
 
+
+    // Function to get star rating
+    const getStars = (rating) => {
+        return (
+            <span className="star-rating">
+                {'★'.repeat(rating)}
+                {'☆'.repeat(5 - rating)}
+            </span>
+        );
+    };
+
   return (
     <div className='container'>
-          <div className="hero-section text-center" style={{ backgroundImage: `url('/food1.avif')`, backgroundSize: 'cover', backgroundPosition: 'center', padding: '100px 0', color: '#fff', position: 'relative' }}>
+          <div className="hero-section text-center" style={{ backgroundImage: `url('/foodimg.jfif')`, backgroundSize: 'cover', backgroundPosition: 'center', padding: '100px 0', color: '#fff', position: 'relative' }}>
               <div className="overlay" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.7)' }}></div>
               <div className="content" style={{ position: 'relative', zIndex: 1 }}>
-                  <h1 className="display-4 mb-3" style={{ marginBottom: '20px' }}>Discover Delicious Recipes</h1>
+                  <h1 className="display-4 mb-3 " style={{ marginBottom: '20px' }}>Discover Delicious Recipes</h1>
                   <p className="lead mb-4 text-light" style={{ fontFamily: 'Open Sans, sans-serif', fontSize: '24px' }}>Explore, cook, and share your favorite recipes!</p>
                   <button
-                      className="btn btn-success mr-5"
+                      className="btn homebtn2 mr-5"
                       type="button"
                       onClick={() => navigate("/recipes")}
                   >
@@ -41,8 +52,10 @@ const HomePage = () => {
 
 
           <div className="mt-5">
-              <h2 className="text-center mb-4 text-success" style={{ fontFamily: 'Open Sans, sans-serif' }}>Top Rated Recipes</h2>
-              <div className="row">
+              <div className="marquee-container">
+                  <h2 className="marquee-text mb-4 text-success">Top rated recipes</h2>
+              </div>
+                            <div className="row">
                   {topRatedRecipes.map((recipe) => (
                       <div className="col-md-4 mb-4" key={recipe._id}>
                         <div className='row'>
@@ -57,9 +70,12 @@ const HomePage = () => {
                               />
                               <div className="card-body d-flex flex-column">
                                   <h5 className="card-title text-center">{recipe.title}</h5>
-                                          <p className="card-text fs-5" style={{ fontFamily: 'Open Sans, sans-serif' }}><strong>Rating:</strong> {recipe.averageRating} / 5 </p>
+                                          <p className="card-text fs-5" style={{ fontFamily: 'Open Sans, sans-serif' }}><strong>Rating:</strong> {getStars(recipe.averageRating)} </p>
                                           <p className="card-text fs-5" style={{ fontFamily: 'Open Sans, sans-serif' }}><strong>Ingredients:</strong> {recipe.ingredients.join(", ")}</p>
-                                  <a href={`/recipe/${recipe._id}`} className="btn btn-outline-success mt-auto">View more</a>
+<div className='text-center'>
+                                              <a href={`/recipe/${recipe._id}`} className="btn homebtn mt-auto ">View more</a>
+
+</div>
                               </div>
                           </div>
                               </div>
@@ -76,7 +92,9 @@ const HomePage = () => {
           
 
           <div className="testimonials text-center my-5">
-              <h2 className="mb-4 text-success" style={{ fontFamily: 'Open Sans, sans-serif' }}>What Our Users Say</h2>
+              <div className="marquee-container">
+                  <h2 className="marquee-text mb-4 text-success">What Our Users Say</h2>
+              </div>
               <blockquote className="blockquote" style={{ fontFamily: 'Open Sans, sans-serif' }}>
                   <p className="mb-3">"I used to dread cooking, but this app has made it a fun and exciting activity. The recipes are so easy to follow, and I've discovered so many new dishes that my family loves. Plus, the shopping list feature is a game-changer!"</p>
                   <footer className="blockquote-footer">Jessica K. in <cite title="Source Title">ThisRecipe</cite></footer>

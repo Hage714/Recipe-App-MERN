@@ -12,6 +12,8 @@ const RecipeDetailPage = () => {
 
   const [selectedRecipe, setSelectedRecipe] = useState(null);
   const [comments, setComments] = useState([]);
+  
+  
 
   console.log(id);
   useEffect(() => {
@@ -183,10 +185,10 @@ const RecipeDetailPage = () => {
             </div>
             <div>
               <label>Comment:</label>
-              <textarea value={comment} onChange={(e) => setComment(e.target.value)} />
+              <textarea value={comment} onChange={(e) => setComment(e.target.value)} required/>
             </div>
             <div className="text-center">
-            <button type="submit">Submit</button>
+            <button type="submit" className="btnsubmit">Submit</button>
             </div>
 
           </form>

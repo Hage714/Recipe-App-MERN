@@ -35,7 +35,7 @@ const Contribute = () => {
 
           <p className="fst-italic mt-3">
             By continuing, you're agreeing to the ThisRecipe{" "}
-            <a href="/terms" className="text-success">
+            <a href="/terms" className="contributetext">
               Terms of Service
             </a>
           </p>
@@ -53,7 +53,7 @@ const Contribute = () => {
             <div className=" text-center">
               <a
                 href="https://paystack.com/pay/syb9hn035h"
-                className="btn btn-success"
+                className="btn homebtn1"
               >
                 Donate
               </a>
