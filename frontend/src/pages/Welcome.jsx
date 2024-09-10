@@ -5,7 +5,7 @@ const Welcome = () => {
     <div className="bgc pt-3">
       <div className=" m-5">
         <h2 className="mb-5 text-center" style={{ fontFamily: "fantasy" }}>
-          Welcome to RecipeApp!
+          Welcome to ThisRecipe!
         </h2>
 
         <div className=" container ">
