@@ -1,6 +1,7 @@
 import React, { useState, useEffect, createContext } from "react";
+import { BASE_URL } from "../utils/config";
 
-const BACKEND_URL = "http://localhost:5000/api/v1";
+//const BACKEND_URL = "http://localhost:5000/api/v1";
 
 export const MyRecipesContext = createContext();
 
@@ -9,7 +10,7 @@ const [recipes, setRecipes] = useState([]);
 
 useEffect(() => {
 const getRecipes = async () => {
-    const response = await fetch(`${BACKEND_URL}/recipes`, {
+    const response = await fetch(`${BASE_URL}/recipes`, {
         method: 'GET',
         headers: { "Content-Type": "application/json" }
     });
